@@ -1,0 +1,40 @@
+{
+    "name": "bdempe18/laravel-campaign-monitor",
+    "description": "Send Campaign Monitor emails using Laravel’s built-in Mailable API.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ben Dempe",
+            "email": "dempeb18@gmail.com"
+        }
+    ],
+    "require": {
+        "illuminate/support": "^10.47|^11.0"
+    },
+    "require-dev": {
+        "laravel/pint": "^1.18",
+        "larastan/larastan": "^2.9",
+        "orchestra/testbench": "^9.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "CampaignMonitor\\": "src/"
+        }
+    },
+    "config": {
+        "sort-packages": true,
+        "preferred-install": "dist",
+        "optimize-autoloader": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "CampaignMonitor\\CampaignMonitorServiceProvider"
+            ],
+            "aliases": "CampaignMonitor\\CampaignMonitor"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
