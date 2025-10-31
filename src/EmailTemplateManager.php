@@ -2,6 +2,7 @@
 
 namespace CampaignMonitor;
 
+use CampaignMonitor\Exceptions\CampaignMonitorException;
 use CampaignMonitor\DTOs\CampaignMonitorTemplate;
 use Illuminate\Support\Str;
 

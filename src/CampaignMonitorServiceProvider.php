@@ -22,7 +22,10 @@ class CampaignMonitorServiceProvider extends ServiceProvider
                 return new CampaignMonitorTransport();
             }
 
-            return Mail::mailer('smtp')->getSymfonyTransport();
+            /** @var \Illuminate\Mail\Mailer $smtpMailer */
+            $smtpMailer = Mail::mailer('smtp');
+
+            return $smtpMailer->getSymfonyTransport();
         });
 
         if ($this->app->runningInConsole()) {

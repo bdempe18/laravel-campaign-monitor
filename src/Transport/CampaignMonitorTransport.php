@@ -17,7 +17,7 @@ class CampaignMonitorTransport extends AbstractTransport
     public function __construct()
     {
         parent::__construct();
-        $this->apiKey = config('campaign-monitor.config.apiKey');
+        $this->apiKey = config('campaign-monitor.config.apiKey', '');
 
         if (blank($this->apiKey)) {
             throw new CampaignMonitorException(null, 'No API key found');
