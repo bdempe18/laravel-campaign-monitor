@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Mail;
+namespace CampaignMonitor;
 
-use App\DTOs\CampaignMonitorTemplate;
+use CampaignMonitor\DTOs\CampaignMonitorTemplate;
 use Illuminate\Support\Str;
 
 class EmailTemplateManager
@@ -20,7 +20,7 @@ class EmailTemplateManager
         $template = config($configPath);
 
         if (is_null($template)) {
-            throw new \InvalidArgumentException("Template not found: {$path}");
+            throw new CampaignMonitorException($path);
         }
 
         return new CampaignMonitorTemplate($path, $template);

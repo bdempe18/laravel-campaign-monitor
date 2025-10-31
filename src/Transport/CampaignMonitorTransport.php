@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Mail\Transport;
+namespace CampaignMonitor\Transport;
 
-use App\Exceptions\CampaignMonitorException;
+use CampaignMonitor\Exceptions\CampaignMonitorException;
 use Illuminate\Support\Facades\Log;
 use Symfony\Component\Mailer\SentMessage;
 use Symfony\Component\Mailer\Transport\AbstractTransport;
@@ -19,8 +19,8 @@ class CampaignMonitorTransport extends AbstractTransport
         parent::__construct();
         $this->apiKey = config('campaign-monitor.config.apiKey');
 
-        if (! blank($this->apiKey)) {
-            throw new CampaignMonitorException('No API key found');
+        if (blank($this->apiKey)) {
+            throw new CampaignMonitorException(null, 'No API key found');
         }
     }
 

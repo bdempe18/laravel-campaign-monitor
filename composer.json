@@ -10,7 +10,8 @@
         }
     ],
     "require": {
-        "illuminate/support": "^10.47|^11.0"
+        "illuminate/support": "^10.47|^11.0",
+        "campaignmonitor/createsend-php": "^7.0"
     },
     "require-dev": {
         "laravel/pint": "^1.18",

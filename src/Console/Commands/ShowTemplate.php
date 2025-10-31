@@ -1,8 +1,8 @@
 <?php
 
-namespace CampaignMonitor\Console;
+namespace CampaignMonitor\Console\Commands;
 
-use App\Mail\EmailTemplateManager;
+use CampaignMonitor\EmailTemplateManager;
 use Illuminate\Console\Command;
 
 class ShowTemplate extends BaseCampaignMonitorCommand

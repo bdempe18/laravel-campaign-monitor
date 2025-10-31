@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Mail;
+namespace CampaignMonitor;
 
-use App\DTOs\CampaignMonitorTemplate;
+use CampaignMonitor\DTOs\CampaignMonitorTemplate;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
@@ -41,7 +41,7 @@ class CampaignMonitor extends Mailable implements ShouldQueue
 
     protected function getView(): string
     {
-        $prefix = 'emails.campaign-monitor.';
+        $prefix = 'campaign-monitor::emails.campaign-monitor.';
         $viewString = $prefix.$this->getTemplateName();
 
         return view()->exists($viewString) ? $viewString : $prefix.'default';

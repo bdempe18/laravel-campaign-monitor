@@ -1,8 +1,9 @@
 <?php
 
-namespace CampaignMonitor\Console;
+namespace CampaignMonitor\Console\Commands;
 
 use Illuminate\Console\Command;
+use Illuminate\Support\Arr;
 
 class ListTemplates extends Command
 {
@@ -43,7 +44,7 @@ class ListTemplates extends Command
             }
 
             $result = [];
-            $this->flattenTemplates($categoryTemplates, $category, $result);
+            $this->flattenTemplates(Arr::wrap($categoryTemplates), $category, $result);
             $allTemplates = array_merge($allTemplates, $result);
         }
 
@@ -80,7 +81,11 @@ class ListTemplates extends Command
     private function flattenTemplates(array $templates, string $path = '', array &$result = []): array
     {
         foreach ($templates as $key => $value) {
-            $currentPath = $path ? "{$path}.{$key}" : $key;
+            if (empty($key)) {
+                $currentPath = $path;
+            } else {
+                $currentPath = $path ? "{$path}.{$key}" : $key;
+            }
 
             if (is_array($value)) {
                 // Recursively process nested arrays

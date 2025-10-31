@@ -18,27 +18,21 @@ class CampaignMonitorServiceProvider extends ServiceProvider
         $this->loadViewsFrom(__DIR__.'/../resources/views', 'campaign-monitor');
 
         Mail::extend('campaign-monitor', function () {
-            $config = config('campaign-monitor');
-
             if (App::isProduction()) {
-                return new CampaignMonitorTransport(
-                    $config['api_key'],
-                    $config['from']['address'],
-                    $config['from']['name']
-                );
+                return new CampaignMonitorTransport;
             }
 
             return Mail::mailer('smtp')->getSymfonyTransport();
         });
 
             if ($this->app->runningInConsole()) {
-        $this->commands([
-            \CampaignMonitor\Console\ShowTemplate::class,
-            \CampaignMonitor\Console\ListTemplates::class,
-            \CampaignMonitor\Console\SyncTemplates::class,
+                $this->commands([
+                    \CampaignMonitor\Console\Commands\ShowTemplate::class,
+                    \CampaignMonitor\Console\Commands\ListTemplates::class,
+                    \CampaignMonitor\Console\Commands\SyncTemplates::class,
 
-        ]);
-    }
+            ]);
+        }
     }
 
     public function register(): void
