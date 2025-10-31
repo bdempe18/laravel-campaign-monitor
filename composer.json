@@ -17,17 +17,23 @@
         "larastan/larastan": "^2.9",
         "laravel/pint": "^1.25",
         "orchestra/testbench": "^9.5",
+        "pestphp/pest": "^4.1",
+        "pestphp/pest-plugin-drift": "^4.0",
         "phpstan/phpstan": "^1.12"
     },
     "autoload": {
         "psr-4": {
+            "Tests\\": "tests/",
             "CampaignMonitor\\": "src/"
         }
     },
     "config": {
         "sort-packages": true,
         "preferred-install": "dist",
-        "optimize-autoloader": true
+        "optimize-autoloader": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
     },
     "extra": {
         "laravel": {
