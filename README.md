@@ -5,7 +5,7 @@ A Laravel package that lets you send transactional Campaign Monitor emails using
 ## Requirements
 
 - PHP 8.1+
-- Laravel 10.47+ or 11.0+
+- Laravel 10+
 - A Campaign Monitor account with API access
 
 ## Installation
