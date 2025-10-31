@@ -10,6 +10,7 @@
         }
     ],
     "require": {
+        "php": ">=8.2",
         "illuminate/support": "^10.47|^11.0",
         "campaignmonitor/createsend-php": "^7.0"
     },
@@ -18,7 +19,6 @@
         "laravel/pint": "^1.25",
         "orchestra/testbench": "^9.5",
         "pestphp/pest": "^4.1",
-        "pestphp/pest-plugin-drift": "^4.0",
         "phpstan/phpstan": "^1.12"
     },
     "autoload": {
