@@ -13,7 +13,9 @@ class CampaignMonitorServiceProvider extends ServiceProvider
     {
         $this->publishes([
             __DIR__ . '/../config/campaign-monitor.php' => config_path('campaign-monitor.php'),
-        ], 'config');
+        ], 'campaign-monitor');
+
+        $this->loadViewsFrom(__DIR__.'/../resources/views', 'campaign-monitor');
 
         Mail::extend('campaign-monitor', function () {
             $config = config('campaign-monitor');
