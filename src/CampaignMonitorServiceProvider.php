@@ -19,17 +19,17 @@ class CampaignMonitorServiceProvider extends ServiceProvider
 
         Mail::extend('campaign-monitor', function () {
             if (App::isProduction()) {
-                return new CampaignMonitorTransport;
+                return new CampaignMonitorTransport();
             }
 
             return Mail::mailer('smtp')->getSymfonyTransport();
         });
 
-            if ($this->app->runningInConsole()) {
-                $this->commands([
-                    \CampaignMonitor\Console\Commands\ShowTemplate::class,
-                    \CampaignMonitor\Console\Commands\ListTemplates::class,
-                    \CampaignMonitor\Console\Commands\SyncTemplates::class,
+        if ($this->app->runningInConsole()) {
+            $this->commands([
+                \CampaignMonitor\Console\Commands\ShowTemplate::class,
+                \CampaignMonitor\Console\Commands\ListTemplates::class,
+                \CampaignMonitor\Console\Commands\SyncTemplates::class,
 
             ]);
         }
