@@ -18,10 +18,6 @@
     <div class="data-container">
         <h3>Data:</h3>
 
-        @php
-          $data = get_defined_vars() ?? [];
-        @endphp
-
         @if(isset($data) && is_array($data) && count($data) > 0)
             <dl>
                 @foreach($data as $key => $value)

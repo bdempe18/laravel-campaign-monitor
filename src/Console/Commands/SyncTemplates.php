@@ -154,20 +154,15 @@ class SyncTemplates extends BaseCampaignMonitorCommand
             $var = preg_replace('/[^A-Za-z0-9_]/', '_', $rawVar);
             $var = preg_replace('/^[0-9]+/', '', $var);
 
-            $varsPhp .= "\${$var} = \${$var} ?? 'N/A' ;\n";
             $rows .= <<<HTML
                 <tr>
                     <td style="font-weight:bold; padding:6px 8px; border-bottom:1px solid #ddd; background:#f9f9f9;">{$var}</td>
-                    <td style="padding:6px 8px; border-bottom:1px solid #ddd;">{{ \${$var} }}</td>
+                    <td style="padding:6px 8px; border-bottom:1px solid #ddd;">{{ \$data['{$var}'] ?? 'N/A' }}</td>
                 </tr>
             HTML;
         }
 
-        return <<<BLADE
-        @php
-        {$varsPhp}
-        @endphp
-
+        return <<<HTML
         <!DOCTYPE html>
         <html>
             <head>
@@ -184,6 +179,6 @@ class SyncTemplates extends BaseCampaignMonitorCommand
                 </table>
             </body>
         </html>
-        BLADE;
+        HTML;
     }
 }

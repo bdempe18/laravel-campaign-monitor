@@ -26,7 +26,7 @@ class CampaignMonitor extends Mailable implements ShouldQueue
     public function build()
     {
         return $this->view($this->getView())
-            ->with($this->data)
+            ->with('data', $this->data)
             ->withSymfonyMessage(function ($message) {
                 $message->getHeaders()
                     ->addTextHeader(
