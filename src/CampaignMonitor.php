@@ -45,7 +45,7 @@ class CampaignMonitor extends Mailable implements ShouldQueue
         $prefix = 'emails.campaign-monitor.';
         $viewString = $prefix.$this->getTemplateName();
 
-        if (! view()->exists($viewString())) {
+        if (! view()->exists($viewString)) {
             $viewString = 'campaign-monitor::emails.campaign-monitor.default';
         }
 
